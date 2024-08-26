@@ -2,8 +2,6 @@ package assignments.ex3;
 
 import java.io.Serializable;
 
-import java.lang.Math;
-
 public class Index2D implements Pixel2D, Serializable{
     private int _x, _y;
     public Index2D() {this(0,0);}
@@ -42,7 +40,6 @@ public class Index2D implements Pixel2D, Serializable{
         return ans;
     }
     @Override
-    public String toString() { //return Index2D object in the format "(x,y)"
         String ans = "";
         // add you code here
         ans = "("+_x+","+_y+")";
@@ -50,7 +47,6 @@ public class Index2D implements Pixel2D, Serializable{
         return ans;
     }
     @Override
-    public boolean equals(Object t) { //checks if object is equal to another object by comparing their x and y coordinates.
         boolean ans = false;
         // add you code here
         {

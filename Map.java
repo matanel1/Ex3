@@ -2,7 +2,6 @@ package assignments.ex3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * This class represents a 2D map as a "screen" or a raster matrix or maze over integers.
@@ -63,10 +62,8 @@ public class Map implements Map2D, Serializable{
 		for (int i = 0; i < _map.length; i++) {
 			ans [i]= Arrays.copyOf(_map[i], _map[i].length);
 		////////////////////
-			}
 		return ans;
 	}
-
 	@Override
 	public int getWidth() {return _map.length;}
 	@Override
@@ -156,11 +153,9 @@ public class Map implements Map2D, Serializable{
 	public Map2D allDistance(Pixel2D start, int obsColor) {
 		Map2D ans = null;
 		// add you code here
-
 		////////////////////
 		return ans;
 	}
-
 	@Override
 	public int numberOfConnectedComponents(int obsColor) {
 		int ans = -1;
