@@ -2,6 +2,7 @@ package assignments.ex3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class represents a 2D map as a "screen" or a raster matrix or maze over integers.
@@ -35,23 +36,37 @@ public class Map implements Map2D, Serializable{
 	@Override
 	public void init(int w, int h, int v) {
 		// add you code here
-
+		_map  = new int [h][w]; //num of rows = h ,num of columns = w
+		//set each value in the 2D array to the value v
+		for (int i = 0; i < h; i++) {
+			for (int j = 0; j < w; j++) {
+			_map[i][j] = v;
 		////////////////////
+			}
+		}
 	}
 	@Override
 	public void init(int[][] arr) {
 		// add you code here
-
+		_map  = new int [arr.length][arr[0].length];
+		// deep copy each row from arr to _map
+		for (int i = 0; i < arr.length; i++) {
+			_map[i] = Arrays.copyOf(arr[i], arr[i].length);
 		////////////////////
+		}
 	}
 	@Override
 	public int[][] getMap() {
-		int[][] ans = null;
 		// add you code here
-
+		int[][] ans = new int[_map.length][];
+		//deep copy each row from _map to ans
+		for (int i = 0; i < _map.length; i++) {
+			ans [i]= Arrays.copyOf(_map[i], _map[i].length);
 		////////////////////
+			}
 		return ans;
 	}
+
 	@Override
 	public int getWidth() {return _map.length;}
 	@Override
@@ -159,7 +174,9 @@ public class Map implements Map2D, Serializable{
 	public boolean equals(Object ob) {
 		boolean ans = false;
 		// add you code here
-
+		if (ob == null || !(ob instanceof Map2D)) {return ans;}
+		Map2D obm = (Map2D)ob;
+		ans =Arrays.deepEquals(this._map,obm.getMap());
 		////////////////////
 		return ans;
 	}
